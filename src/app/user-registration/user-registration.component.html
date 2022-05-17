@@ -1,0 +1,165 @@
+<div class="html">
+  <div class="body">
+    <div style="color: white" align="right">
+      <h4 align="justify" style="color: white">
+        <br />
+        <a style="color: green" href="/employeehome" style="float: left;"><button class="btn-float-left" style="border-radius: 15px;">Home</button> </a>
+        <a style="color: green" href="/userLogin" style="float: right;"><button class="btn-float-right" style="border-radius: 15px;">Logout</button> </a>
+      </h4>
+    </div>
+    
+    <div class="container" >
+    <h1 style="color: red">User Registration</h1>
+    <form (ngSubmit)="onSubmit()" #UserRegistration="ngForm">
+      <div class="form-group">
+        <label for="userid" style="color:blue">UserId</label>
+        
+        <input
+          type="text"
+          [(ngModel)]="user.userid"
+          class="form-control"
+          id="userid"
+          name="userid"
+          placeholder="Enter your userid"
+          required
+          #userid="ngModel"
+        />
+        <br />
+    <br />
+      </div>
+      <div class="form-group">
+        <label for="fname" style="color:blue">First Name</label>
+        <input
+          type="text"
+          [(ngModel)]="user.first"
+          class="form-control1"
+          id="fname"
+          name="fname"
+          placeholder="Enter your fname"
+          required pattern="[a-zA-Z][a-zA-Z ]+"
+          #fname="ngModel"
+        >
+      </div>
+      <div [hidden]="!fname.pristine" class="alert-danger">
+        firstname is required
+      </div>
+      <div *ngIf="fname.invalid &&(fname.dirty|| fname.touched)" class="alert">
+        <div style="color: rgb(241, 101, 101);" *ngIf="fname.errors?.['required']"> <b>fname is required</b></div>
+      <div style="color: rgb(241, 102, 102);" *ngIf="fname.errors?.['pattern']"><b>Enter the valid fname</b></div>
+    </div>
+      <div class="form-control2">
+        <label for="lname" style="color:blue">Last Name</label>
+        <input
+          type="text"
+          [(ngModel)]="user.last"
+          class="form-control"
+          id="lname"
+          name="lname"
+          placeholder="Enter your lname"
+          required pattern="[a-zA-Z][a-zA-Z ]+" 
+          #lname="ngModel"
+        >
+      </div>
+      <div [hidden]="!lname.pristine" class="alert-danger">
+        lastname is required
+      </div>
+      <div *ngIf="lname.invalid &&(lname.dirty|| lname.touched)" class="alert">
+        <div style="color: rgb(241, 101, 101);" *ngIf="lname.errors?.['required']"> <b>lname is required</b></div>
+      <div style="color: rgb(241, 102, 102);" *ngIf="lname.errors?.['pattern']"><b>Enter the valid lname</b></div>
+    </div>
+      <div class="form-control3">
+        <label for="email" style="color:blue">Email</label>
+        <input
+          type="text"
+          [(ngModel)]="user.email"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="Enter your email address"
+          required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          #email="ngModel"
+        />
+        <div [hidden]="!email.pristine" class="alert-danger">
+          Email is required
+        </div>
+        <div *ngIf="email.invalid &&(email.dirty|| email.touched)" class="alert">
+          <div style="color: rgb(241, 101, 101);" *ngIf="email.errors?.['required']"> <b>Email is required</b></div>
+        <div style="color: rgb(241, 102, 102);" *ngIf="email.errors?.['pattern']"><b>Enter the valid Email</b></div>
+      </div>
+      </div>
+      <div class="form-control4">
+        <label for="phone" style="color:blue">Phone Number</label>
+        <input
+          type="number"
+          [(ngModel)]="user.phone"
+          class="form-control"
+          id="phone"
+          name="phone"
+          placeholder="Enter your phone number"
+          required pattern="^((\\+91-?)|0)?[0-9]{10}$"
+          #phone="ngModel"
+        />
+      </div>
+      <div [hidden]="!phone.pristine" class="alert-danger">
+        phone is required
+      </div>
+      <div *ngIf="phone.invalid &&(phone.dirty|| phone.touched)" class="alert">
+        <div style="color: rgb(228, 68, 68);" *ngIf="phone.errors?.['required']"> <b>Mobile number is required</b></div>
+        <div style="color: rgb(224, 80, 80);" *ngIf="phone.errors?.['pattern']"><b>Enter the valid Number</b></div>
+      </div>
+      <div class="form-control4">
+        <label for="password" style="color:blue">Password</label>
+        <input
+          type="password"
+          [(ngModel)]="user.password"
+          class="form-control"
+          id="password"
+          name="password"
+          placeholder="Enter password"
+          required
+          #password="ngModel"
+        />
+      </div>
+      <div class="form-control5">
+        <label for="confirm password" style="color:blue">Confirm Password</label>
+        <input
+          type="password"
+          [(ngModel)]="confirmpassword"
+          class="form-control"
+          id="confirm password"
+          name="confirm password"
+          placeholder="Enter confirm password"
+          required
+          #confirm
+          password="ngModel"
+          
+        >
+        
+      </div>
+      <div style="background-color: #fa1515" class="err">{{missmatch}}</div>
+      <div class="form-control6" style="color:blue">
+        <label for="address">Address</label>
+        <input
+          type="text"
+          [(ngModel)]="user.address"
+          class="form-control"
+          id="address"
+          name="address"
+          placeholder="Enter your address"
+          required
+          #address="ngModel"
+        />
+      </div>
+      <button
+        type="submit"
+        [disabled]="!UserRegistration.form.valid"
+        class="btn btn-info">
+        Submit
+      </button>
+      <button (click)="gotoLogInPage()">
+        Login
+      </button>
+    </form>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="html">
+  <div style="color: white" align="right">
+    <h4 align="right">
+      <br />
+      <a style="color: green" href="/employeehome"><button class="btn-float-left">Home</button> </a>
+      <a style="color: green" href="/userLogin"><button class="btn-float-right">SignOff</button> </a>
+    </h4>
+  </div>
+  <div align="center">
+  <div class="body">
+    <form (ngSubmit)="onSubmit()" #EmployeeRegistration="ngForm">
+      <div class="form-control">
+        <label for="employeename">Employee name</label>
+        <input
+          type="text"
+          [(ngModel)]="employee.name"
+          class="form-control"
+          id="employeename"
+          name="employeename"
+          placeholder="Enter your name"
+          required pattern="[a-zA-Z][a-zA-Z ]+"
+          #userid="ngModel"
+        />
+      </div>
+      <div class="form-control1">
+        <label for="doj">date Of Joining</label>
+        <input
+          type="date"
+          [(ngModel)]="employee.dateOfJoining"
+          class="form-control1"
+          id="doj"
+          name="doj"
+          placeholder="date of joining"
+          required
+          #doj="ngModel"
+        />
+      </div>
+
+      <div class="form-control2">
+        <label for="basicpay">Basicpay</label>
+        <input
+          type="text"
+          [(ngModel)]="employee.basicpay"
+          class="form-control2"
+          id="basicpay"
+          name="basicpay"
+          placeholder="Enter your basicpay"
+          required pattern="^((\\+91-?)|0)?[0-9]{10}$"
+          #basicpay="ngModel"
+        />
+      </div>
+      <br>
+      <button
+        type="Add Employee"
+        class="btn btn-info"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

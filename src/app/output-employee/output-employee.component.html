@@ -1,0 +1,57 @@
+<div class="body">
+  <div style="color: white" align="right">
+    <h4 align="justify" style="color: white">
+      <br />
+      <a style="color: green" href="/employeehome"><button class="btn-float-left">Home</button> </a>
+      <a style="color: green" href="/userLogin"><button class="btn-float-right">Logout</button> </a>
+    </h4>
+  </div>
+<div align="center">
+    <h1>Employee List</h1>
+
+    <table border="1">
+      <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>DOJ</th>
+        <th>Basic Pay</th>
+        <th>DA</th>
+        <th>HRA</th>
+        <th>Gross</th>
+        <th>Tax</th>
+        <th>Net</th>
+        <th>Modify Employee</th>
+        <tr></tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let employee of employeearr;let i=index">
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.dateOfJoining }}</td>
+          <td>{{ employee.basicpay }}</td>
+          <td>{{ employee.da }}</td>
+          <td>{{ employee.hra }}</td>
+          <td>{{ employee.gross }}</td>
+          <td>{{ employee.tax }}</td>
+          <td>{{ employee.net }}</td>
+          <td>
+             
+            <input style="margin-left: 10px;" (click)="deleteEmpById(employee)" class="button" type="Submit" value="Delete"  />
+             
+            <input class="anchor1" type="Submit"    value="Edit" (click)="editEmpById(employee)"  />
+           
+          
+             
+             
+    
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+   
+  <br /><br /><br />
+
+
+</div>

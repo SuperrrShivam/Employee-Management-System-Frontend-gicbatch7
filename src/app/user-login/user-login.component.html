@@ -1,0 +1,45 @@
+<div class="body">
+  <div class= "container" >
+    <h1>Employee Management System</h1>
+    <div class="card">
+      <h2>LOGIN</h2>
+      <br />
+      <br />
+      <form #signupForm="ngForm" (ngSubmit)="userLogin(signupForm)">
+        <label style="font-size: 30px" for="username">UserId: </label>
+        <input
+          class="anchor1"
+          type="text"
+          placeholder="User id"
+          name="username"
+          id="username"
+          ngModel
+          required
+        />
+        <br />
+        <br />
+        <label style="font-size: 30px" for="password">Password: </label>
+        <input
+          class="anchor2"
+          placeholder="Password"
+          type="password"
+          name="password"
+          id="password"
+          ngModel
+          required
+        />
+        <br />
+        <br />
+        <input class="button" type="Submit" id="validate" value="Login" />
+        <br />
+      </form>
+       
+      <div *ngIf="status" style="color: rgb(26, 138, 243)">
+        <h3>Welcome!! {{ name }} You Are Successfully Logged In</h3>
+      </div>
+      <div *ngIf="error" style="color: rgb(26, 102, 243)">
+        User Id Or Password Seems Incorrect !
+      </div>
+    </div>
+  </div>
+</div>
